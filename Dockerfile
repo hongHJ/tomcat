@@ -10,7 +10,7 @@ FROM primetoninc/jdk:latest
 # LABEL maintainer="lizw@primeton.com" \
 #     provider="Primeton Technologies, Ltd."
 
-ENV TOMCAT_VERSION="7.0.81"
+ENV TOMCAT_VERSION="8.0.46"
 
 # ENV TOMCAT_HOME="/opt/apache-tomcat-${TOMCAT_VERSION}"
 ENV TOMCAT_HOME="/tomcat"
@@ -27,7 +27,7 @@ ENV JAVA_DEBUG=NO \
 EXPOSE 8080 8888
 
 RUN curl --fail --location --retry 3 \
-      https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.81/bin/apache-tomcat-7.0.81.tar.gz \
+      https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.46/bin/apache-tomcat-8.0.46.tar.gz \
       -o /tmp/tomcat.tar.gz \
     && tar -zvxf /tmp/tomcat.tar.gz -C /tmp/ \
     && mkdir -p /opt/app/ \
