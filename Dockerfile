@@ -31,10 +31,10 @@ RUN curl --fail --location --retry 3 \
       -o /tmp/tomcat.tar.gz \
     && tar -zvxf /tmp/tomcat.tar.gz -C /tmp/ \
     && mkdir -p /opt/app/ \
-    && mv /tmp/apache-tomcat* ${TOMCAT_HOME} \
+    && \mv -f /tmp/apache-tomcat* ${TOMCAT_HOME} \
     && mkdir -p ${TOMCAT_HOME}/backup \
-    && mv ${TOMCAT_HOME}/webapps/ROOT ${TOMCAT_HOME}/backup/ \
-    && rm -rf /tmp/tomcat.tar.gz ${TOMCAT_HOME}/webapps/*
+    && \mv -f ${TOMCAT_HOME}/webapps/ROOT ${TOMCAT_HOME}/backup/ \
+    && \rm -rf /tmp/tomcat.tar.gz ${TOMCAT_HOME}/webapps/*
 
 # Inject tomcat ThreadPool size by environment on docker run
 ADD resources/server.xml ${TOMCAT_HOME}/conf/server-template.xml
