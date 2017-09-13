@@ -30,7 +30,6 @@ RUN curl --fail --location --retry 3 \
       https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.81/bin/apache-tomcat-7.0.81.tar.gz \
       -o /tmp/tomcat.tar.gz \
     && tar -zvxf /tmp/tomcat.tar.gz -C /tmp/ \
-    && mkdir -p /opt/app/ \
     && \mv -f /tmp/apache-tomcat* ${TOMCAT_HOME} \
     && mkdir -p ${TOMCAT_HOME}/backup \
     && \mv -f ${TOMCAT_HOME}/webapps/ROOT ${TOMCAT_HOME}/backup/ \
